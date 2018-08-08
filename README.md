@@ -15,9 +15,8 @@ Deployment:
     python model.py
   Cron tab setup to schedule currency_injest_9am on weekdays
     0 9 * * 1-5 currency_injest_9am.py
-    
-  To monitor we can use standard MAILTO= function. If a cronjob produces output on STDERR, it will be mailed to the address we choose
+  To monitor Cron Jobs we can use standard MAILTO= function. If a cronjob produces output on STDERR, it will be mailed to the address we choose
 
-Alternative to scheduling and monitoring this tas.
-  We could very well use <b>celery/rabbitMQ</b> to schedule this whole task on daily basis by making use of <b>CeleryBeats</b>.
+Alternative to scheduling and monitoring this task : 
+  Instead of Cron Tab solution, Ideally we should use <b>celery/rabbitMQ</b> to schedule this whole task on daily basis by making use of <b>CeleryBeats</b>.
   We can then use <b>Celery Flower</b> to monitor celery tasks and workers.
