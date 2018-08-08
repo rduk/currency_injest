@@ -42,7 +42,7 @@ if __name__ == '__main__':
         print(i, day)
         logging.info(f"Entering data for day : {day}")
         res = requests.get(
-            f'http://data.fixer.io/api/{day}?access_key={API_KEY}&symbols=USD,AUD,CAD,PLN,MXN&format=1').json()
+            f'http://data.fixer.io/api/{day}?access_key={API_KEY}&format=1').json()
         ses.add_all(
             CurrencyData(date=day, currency_country=currency, currency_rate=value) for currency, value in res['rates'].items()
             )
